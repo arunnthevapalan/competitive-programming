@@ -36,3 +36,17 @@ class Solution:
                 star.pop()
             else: break
         return len(stack)==0
+    
+#approach 2 , count * as left parathesis once, as right paranthesis next
+class Solution:
+    def checkValidString(self, s: str) -> bool:
+            lo = 0
+            hi = 0;
+            for c in s:
+                lo += 1 if c == '(' else -1
+                hi += 1 if c != ')' else -1
+                if (hi < 0) :
+                    break
+                lo = max(lo, 0);
+
+            return lo == 0;
